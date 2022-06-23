@@ -6,7 +6,7 @@ import ServiceHistory from './ServiceHistory';
 import TechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <Nav />
