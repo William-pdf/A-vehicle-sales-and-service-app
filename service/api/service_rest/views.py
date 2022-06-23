@@ -7,3 +7,7 @@ from common.json import ModelEncoder
 class AutoMobileVOEncoder(ModelEncoder):
     model = AutoMobileVO
     properties = ["vin"]
+
+class TechnicianListEncoder(ModelEncoder):
+    model = Technician
+    properties = ["name", "employee_number", "id"]
