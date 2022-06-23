@@ -2,15 +2,14 @@
 
 Team:
 
-* Conner - Service
-* William - Sales
+* Conner - Sales
+* William - Service
 
 ## Design
 
 ## Service microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+Microservice to display appointments with technician, etc.
 
 ## Sales microservice
 
