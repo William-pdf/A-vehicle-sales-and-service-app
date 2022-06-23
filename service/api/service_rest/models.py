@@ -39,10 +39,3 @@ class ServiceAppointment(models.Model):
     
     def set_completed(self):
         self.status = True
-
-
-
-# set default status to true
-# true means that the appointment is pending completion or cancelation
-# when either button is pressed, status will be updated to false
-# false will remove the appointment from the list, but keep it in service history
