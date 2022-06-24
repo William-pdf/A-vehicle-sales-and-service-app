@@ -14,7 +14,7 @@ function SalesRecordList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.sales_record.map(a => {
+                    {props.sales_record?.map(a => {
                         return (
                             <tr key={ a.vin.vin }>
                                 <td>{ a.vin.vin}</td>

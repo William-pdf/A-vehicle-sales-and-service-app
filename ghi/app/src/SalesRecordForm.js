@@ -1,6 +1,7 @@
 import React from 'react';
 
 function SalesRecordList(props) {
+
     return (
         <div className="container-fluid">
             <h2>List Sales Records</h2>
@@ -14,7 +15,7 @@ function SalesRecordList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.sales_record.map(a => {
+                    {props.sales_record?.map(a => {
                         return (
                             <tr key={ a.vin.vin }>
                                 <td>{ a.vin.vin}</td>

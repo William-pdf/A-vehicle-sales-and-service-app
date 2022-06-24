@@ -10,6 +10,7 @@ import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
 import SalesPersonForm from './SalesPersonForm';
+import SalesRecordForm from './SalesRecordForm';
 import SalesRecordList from './SalesRecordList';
 import CustomerForm from './CustomerForm';
 import TechnicianForm from './TechnicianForm';
@@ -27,23 +28,27 @@ class App extends React.Component {
       fetch('http://localhost:8100/api/automobiles/'),
       fetch('http://localhost:8100/api/manufacturers'),
       fetch('http://localhost:8100/api/models'),
+      fetch('http://localhost:8100/api/salesrecords'),
+      
     ])
       .then(
 
-        ([appointments, autos, ManufacturerList, VehicleModelList]) => {
+        ([appointments, autos, ManufacturerList, VehicleModelList, salesrecords]) => {
           return Promise.all([
             appointments.json(),
             autos.json(),
             ManufacturerList.json(),
             VehicleModelList.json(),
+            salesrecords.json(),
           ])
         })
       .then(
-        ([appointments, autos, ManufacturerList, VehicleModelList]) => {
+        ([appointments, autos, ManufacturerList, VehicleModelList, salesrecords]) => {
           this.setState(appointments)
           this.setState(autos)
           this.setState(ManufacturerList)
           this.setState(VehicleModelList)
+          this.setState(salesrecords)
         });
   }
   render() {
@@ -69,7 +74,8 @@ class App extends React.Component {
             </Route>
             <Route path="sales/">
               <Route path="salesperson/new/" element={<SalesPersonForm />} />
-              <Route path="salesrecordslist/" element={<SalesRecordList sales_record={this.state.salesrecords} />} /> */}
+              <Route path="salesrecord/new" element={<SalesRecordForm sales_record={this.state.salesrecords} />} />
+              <Route path="salesrecordlist/" element={<SalesRecordList sales_record={this.state.salesrecords} />} />
               <Route path="customer/new/" element={<CustomerForm />} />
             </Route>
           </Routes>
