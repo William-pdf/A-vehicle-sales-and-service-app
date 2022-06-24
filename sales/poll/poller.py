@@ -12,7 +12,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
 django.setup()
 
 # Import models from sales_rest, here.
-from sales_rest.models import Automobile
+from sales_rest.models import AutomobileVO
 # from sales_rest.models import Something
 
 def get_vin():
@@ -21,7 +21,7 @@ def get_vin():
     for automobiles in content['autos']:
         automobiles.objects.update_or_create(
             vin=automobiles["vin"]
-
+        )
 def poll():
     while True:
         print('Sales poller polling for data')
