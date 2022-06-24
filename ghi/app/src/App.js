@@ -22,16 +22,20 @@ class App extends React.Component {
   async componentDidMount() {
     Promise.all([
       fetch('http://localhost:8080/api/appointments/'),
+      fetch('http://localhost:8100/api/automobiles/'),
     ])
       .then(
-        ([appointments]) => {
+        
+        ([appointments, autos])  => {
           return Promise.all([
-            appointments.json()
+            appointments.json(),
+            autos.json(),
           ])
         })
       .then(
-        ([appointments]) => {
+        ([appointments, autos]) => {
           this.setState(appointments)
+          this.setState(autos)
         });
   }
   render() {
@@ -47,7 +51,7 @@ class App extends React.Component {
               {/* <Route path="/vehicles/manufacturers/new" element={<VehicleManufacturerForm />} /> */}
               {/* <Route path="/vehicles/manufacturers" element={<VehicleManufacturersList manufacturers={props.manufacturers} />} /> */}
               <Route path="/vehicles/automobiles/new" element={<AutomobileForm />} />
-              {/* <Route path="/vehicles/automobiles/list" element={<AutomobilesList automobiles={props.automobiles} />} /> */}
+              <Route path="/vehicles/automobiles/list" element={<AutomobilesList Automobiles={this.state.autos} />} />
             </Route>
             <Route path="services/">
               <Route path="technicians/" element={<TechnicianForm />} />
