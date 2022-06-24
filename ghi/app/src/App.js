@@ -10,7 +10,7 @@ import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
 import SalesPersonForm from './SalesPersonForm';
-// import SalesRecordList from './SalesRecordList';
+import SalesRecordList from './SalesRecordList';
 import CustomerForm from './CustomerForm';
 import TechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
@@ -53,7 +53,6 @@ class App extends React.Component {
         <div className="container">
           <Routes>
             <Route path="/" element={<MainPage />} />
-
             <Route path="/vehicles">
               <Route path="/vehicles/manufacturers/new" element={<VehicleManufacturerForm />} />
               <Route path="/vehicles/automobiles/list" element={<AutomobilesList Automobiles={this.state.autos} />} />
@@ -66,14 +65,12 @@ class App extends React.Component {
               <Route path="technicians/" element={<TechnicianForm />} />
               <Route path="history/" element={<ServiceHistory AppointmentsList={this.state.appointments} />} />
               <Route path="appointments/" element={<ServiceAppointmentForm />} />
-
               <Route path="appointments/list" element={<AppointmentList AppointmentsList={this.state.appointments} />} />
             </Route>
             <Route path="sales/">
-              <Route path="salesperson/new" element={<SalesPersonForm />} />
-              {/* <Route path="salesrecords/" element={<SalesRecordList sales_record={this.state.salesrecords} />} /> */}
+              <Route path="salesperson/new/" element={<SalesPersonForm />} />
+              <Route path="salesrecordslist/" element={<SalesRecordList sales_record={this.state.salesrecords} />} /> */}
               <Route path="customer/new/" element={<CustomerForm />} />
-              
             </Route>
           </Routes>
         </div>

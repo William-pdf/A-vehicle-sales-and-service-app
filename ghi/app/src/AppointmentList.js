@@ -3,6 +3,38 @@ import React, {useState, useEffect}from 'react' ;
 
 
 function AppointmentList({AppointmentsList}){
+
+  const cancel = async (event) => {
+    console.log(event.currentTarget.id)
+    const idvalue = event.currentTarget.id;
+    const url = `http://localhost:8080/api/services/reject/${idvalue}/`
+    const fetchConfig = {
+      method: "put",
+      headers: {"Content-Type": "application/json"}
+    }
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      console.log({"second": "cancelled appointment"})
+    } else {
+      console.log({"third": "you failed"})
+    }
+  } 
+
+  const finished = async (event) => {
+    console.log(event.currentTarget.id)
+    const idvalue = event.currentTarget.id;
+    const url = `http://localhost:8080/api/services/finished/${idvalue}/`
+    const fetchConfig = {
+      method: "put",
+      headers: {"Content-Type": "application/json"}
+    }
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      console.log({"second": "completed appointment"})
+    } else {
+      console.log({"third": "you failed"})
+    }
+  }
     //  getAppointmentData() {
     //   const url = 'http://localhost:8080/api/appointments';
     //   const response = await fetch(url);
@@ -62,10 +94,8 @@ function AppointmentList({AppointmentsList}){
                         <td>{ appointment.time}</td>
                         <td>{ appointment.assigned_technician.name}</td>
                         <td>{ appointment.reason }</td>
-                        {/* <td>
-                        <button  value={appointment.id} onClick={this.cancelAppointment} type="button" className="btn btn-danger">Cancel</button>
-                        <button value={appointment.id} onClick={this.updateAppointment} type="button" className="btn btn-success">Finished</button>
-                        </td> */}
+                        <td><button onClick={cancel} id={appointment.id} key={appointment.id}>Cancel</button></td>
+                        <td><button onClick={finished} id={appointment.id} key={appointment.id}>Complete</button></td>
                       </tr>
                     );
                   })}
