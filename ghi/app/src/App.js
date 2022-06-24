@@ -10,6 +10,8 @@ import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
 import SalesPersonForm from './SalesPersonForm';
+// import SalesRecordList from './SalesRecordList';
+import CustomerForm from './CustomerForm';
 import TechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
 import ServiceHistory from './ServiceHistory';
@@ -24,21 +26,24 @@ class App extends React.Component {
       fetch('http://localhost:8080/api/appointments/'),
       fetch('http://localhost:8100/api/automobiles/'),
       fetch('http://localhost:8100/api/manufacturers'),
+      fetch('http://localhost:8100/api/models'),
     ])
       .then(
-        
-        ([appointments, autos, ManufacturerList])  => {
+
+        ([appointments, autos, ManufacturerList, VehicleModelList]) => {
           return Promise.all([
             appointments.json(),
             autos.json(),
             ManufacturerList.json(),
+            VehicleModelList.json(),
           ])
         })
       .then(
-        ([appointments, autos, ManufacturerList]) => {
+        ([appointments, autos, ManufacturerList, VehicleModelList]) => {
           this.setState(appointments)
           this.setState(autos)
           this.setState(ManufacturerList)
+          this.setState(VehicleModelList)
         });
   }
   render() {
@@ -48,22 +53,26 @@ class App extends React.Component {
         <div className="container">
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="new/model" element={<VehicleModelForm />} />
-            {/* <Route index path="list/models" element={<VehicleList vehicles={props.vehicles} />} /> */}
+
             <Route path="/vehicles">
               <Route path="/vehicles/manufacturers/new" element={<VehicleManufacturerForm />} />
-              <Route path="manufacturers/" element={<VehicleManufacturersList ManufacturerList={this.state.manufacturers} />} />
-              <Route path="/vehicles/automobiles/new" element={<AutomobileForm />} />
               <Route path="/vehicles/automobiles/list" element={<AutomobilesList Automobiles={this.state.autos} />} />
+              <Route path="new/model" element={<VehicleModelForm />} />
+              <Route path="models/" element={<VehicleModelForm autos={this.state.VehicleModelList} />} />
+              <Route path="manufacturers/" element={<VehicleManufacturersList ManufacturerList={this.state.manufacturers} />} />
             </Route>
             <Route path="services/">
               <Route path="technicians/" element={<TechnicianForm />} />
-              <Route path="history/" element={<ServiceHistory AppointmentsList={this.state.appointments} /> } />
+              <Route path="history/" element={<ServiceHistory AppointmentsList={this.state.appointments} />} />
               <Route path="appointments/" element={<ServiceAppointmentForm />} />
+
               <Route path="appointments/list" element={<AppointmentList AppointmentsList={this.state.appointments} />} />
-              <Route path="sales/">
+            </Route>
+            <Route path="sales/">
               <Route path="salesperson/new" element={<SalesPersonForm />} />
-              </Route>
+              {/* <Route path="salesrecords/" element={<SalesRecordList sales_record={this.state.salesrecords} />} /> */}
+              <Route path="customer/new/" element={<CustomerForm />} />
+              {/* <Route path="/vehicles/automobiles/new" element={<AutomobileForm />} /> */}
             </Route>
           </Routes>
         </div>
