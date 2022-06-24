@@ -14,9 +14,9 @@ function AppointmentList({AppointmentsList}){
     }
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
-      console.log({"second": "cancelled appointment"})
+      console.log({"second": "appointment cancelled"})
     } else {
-      console.log({"third": "you failed"})
+      console.log({"third": "Did not succeed"})
     }
   } 
 
@@ -30,9 +30,9 @@ function AppointmentList({AppointmentsList}){
     }
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
-      console.log({"second": "completed appointment"})
+      console.log({"second": "appointment completed"})
     } else {
-      console.log({"third": "you failed"})
+      console.log({"third": "Did not succeed"})
     }
   }
     //  getAppointmentData() {
