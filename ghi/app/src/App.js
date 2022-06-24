@@ -9,7 +9,7 @@ import VehicleManufacturersList from './VehicleManufacturersList';
 import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
-//import ServiceHistory from './ServiceHistory';
+import SalesPersonForm from './SalesPersonForm';
 import TechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
 import ServiceHistory from './ServiceHistory';
