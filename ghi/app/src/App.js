@@ -58,6 +58,9 @@ class App extends React.Component {
               <Route path="history/" element={<ServiceHistory AppointmentsList={this.state.appointments} /> } />
               <Route path="appointments/" element={<ServiceAppointmentForm />} />
               <Route path="appointments/list" element={<AppointmentList AppointmentsList={this.state.appointments} />} />
+              <Route path="sales/">
+              <Route path="salesperson/new" element={<SalesPersonForm />} />
+              </Route>
             </Route>
           </Routes>
         </div>
