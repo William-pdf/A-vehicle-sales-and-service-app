@@ -10,6 +10,8 @@ root.render(
   </React.StrictMode>
 );
 
+// this is not used. DELETE BEFORE FINAL PUSH
+
 
 // async function loadInventory() {
 //   let vehicleModelData;

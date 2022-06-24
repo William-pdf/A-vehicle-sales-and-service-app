@@ -1,11 +1,11 @@
 import React from "react";
 
-function VehicleManufacturersList(props) {
+function VehicleManufacturersList({ManufacturerList}) {
     return (
         <div className="container">
           <h2 className="display-5 fw-bold">Vehicle Manufacturers</h2>
           <div className="row">
-            {props.manufacturers.manufacturers.map(manufacturer => {
+            {ManufacturerList && ManufacturerList.map(manufacturer => {
               return (
                 <div key={manufacturer.id} className="col">
                   <div className="card mb-3 shadow">

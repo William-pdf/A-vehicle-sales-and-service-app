@@ -9,7 +9,7 @@ import VehicleManufacturersList from './VehicleManufacturersList';
 import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
-import SalesPersonForm from './SalesPersonForm';
+//import SalesPersonForm from './SalesPersonForm';
 import TechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
 import ServiceHistory from './ServiceHistory';
@@ -23,19 +23,22 @@ class App extends React.Component {
     Promise.all([
       fetch('http://localhost:8080/api/appointments/'),
       fetch('http://localhost:8100/api/automobiles/'),
+      fetch('http://localhost:8100/api/manufacturers'),
     ])
       .then(
         
-        ([appointments, autos])  => {
+        ([appointments, autos, ManufacturerList])  => {
           return Promise.all([
             appointments.json(),
             autos.json(),
+            ManufacturerList.json(),
           ])
         })
       .then(
-        ([appointments, autos]) => {
+        ([appointments, autos, ManufacturerList]) => {
           this.setState(appointments)
           this.setState(autos)
+          this.setState(ManufacturerList)
         });
   }
   render() {
@@ -48,8 +51,8 @@ class App extends React.Component {
             <Route path="new/model" element={<VehicleModelForm />} />
             {/* <Route index path="list/models" element={<VehicleList vehicles={props.vehicles} />} /> */}
             <Route path="/vehicles">
-              {/* <Route path="/vehicles/manufacturers/new" element={<VehicleManufacturerForm />} /> */}
-              {/* <Route path="/vehicles/manufacturers" element={<VehicleManufacturersList manufacturers={props.manufacturers} />} /> */}
+              <Route path="/vehicles/manufacturers/new" element={<VehicleManufacturerForm />} />
+              <Route path="manufacturers/" element={<VehicleManufacturersList ManufacturerList={this.state.manufacturers} />} />
               <Route path="/vehicles/automobiles/new" element={<AutomobileForm />} />
               <Route path="/vehicles/automobiles/list" element={<AutomobilesList Automobiles={this.state.autos} />} />
             </Route>
@@ -59,7 +62,7 @@ class App extends React.Component {
               <Route path="appointments/" element={<ServiceAppointmentForm />} />
               <Route path="appointments/list" element={<AppointmentList AppointmentsList={this.state.appointments} />} />
               <Route path="sales/">
-              <Route path="salesperson/new" element={<SalesPersonForm />} />
+              {/* <Route path="salesperson/new" element={<SalesPersonForm />} /> */}
               </Route>
             </Route>
           </Routes>

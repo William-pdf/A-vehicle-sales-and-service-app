@@ -93,20 +93,20 @@ def api_manufacturers(request):
             encoder=ManufacturerEncoder,
         )
     else:
-        try:
-            content = json.loads(request.body)
-            manufacturer = Manufacturer.objects.create(**content)
-            return JsonResponse(
-                manufacturer,
-                encoder=ManufacturerEncoder,
-                safe=False,
-            )
-        except:
-            response = JsonResponse(
-                {"message": "Could not create the manufacturer"}
-            )
-            response.status_code = 400
-            return response
+        ## try:
+        content = json.loads(request.body)
+        manufacturer = Manufacturer.objects.create(**content)
+        return JsonResponse(
+            manufacturer,
+            encoder=ManufacturerEncoder,
+            safe=False,
+        )
+        # ##except:
+        #     response = JsonResponse(
+        #         {"message": "Could not create the manufacturer"}
+        #     )
+        #     response.status_code = 400
+        #     return response
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])

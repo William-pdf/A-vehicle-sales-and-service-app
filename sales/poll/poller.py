@@ -1,4 +1,5 @@
 from urllib import response
+from webbrowser import get
 import django
 import os
 import sys
@@ -15,13 +16,17 @@ from sales_rest.models import Automobile
 # from sales_rest.models import Something
 
 def get_vin():
-    response = requests.get("htto")
+    response = requests.get("http://inventory-api:8000/api/automobiles/")
+    content = json.loads(response.content)
+    for automobiles in content['autos']:
+        automobiles.objects.update_or_create(
+            vin=automobiles["vin"]
 
 def poll():
     while True:
         print('Sales poller polling for data')
         try:
-            # Write your polling logic, here
+            get_vin()
             pass
         except Exception as e:
             print(e, file=sys.stderr)
