@@ -22,8 +22,8 @@ class Technician(models.Model):
 class ServiceAppointment(models.Model):
     customer_name = models.CharField(max_length=100)
     reason = models.CharField(max_length=100)
-    date = models.DateField()
-    time = models.TimeField()
+    date = models.CharField(max_length=8)
+    time = models.CharField(max_length=5)
     status = models.BooleanField(null=True, blank=True, default=False)
     assigned_technician = models.ForeignKey(
         Technician,

@@ -5,7 +5,7 @@ class TechnicianForm extends React.Component {
         super(props)
         this.state = {
             name: '',
-            employeeNumber: ''
+            employee_number: ''
         }
 
         this.handleName = this.handleName.bind(this);
@@ -16,9 +16,6 @@ class TechnicianForm extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         const data = {...this.state}
-        data.employee_number = parseInt(data.employeeNumber, 10);
-        delete data.employeeNumber;
-
         const technicianUrl = 'http://localhost:8080/api/technicians/';
         const fetchConfig = {
             method: "post",
@@ -32,8 +29,9 @@ class TechnicianForm extends React.Component {
               const newTechnician = await response.json();
               this.setState({
                   name: '',
-                  employeeNumber: '',
+                  employee_number: '',
               });
+              console.log(newTechnician)
           }
     }
 
@@ -44,7 +42,7 @@ class TechnicianForm extends React.Component {
 
     handleNumber(event) {
         const value = event.target.value;
-        this.setState({employeeNumber: value});
+        this.setState({employee_number: value});
     }
 
     render() {
@@ -59,7 +57,7 @@ class TechnicianForm extends React.Component {
                     <label htmlFor="name">Name</label>
                   </div>
                   <div className="form-floating mb-3">
-                    <input value={this.state.employeeNumber} onChange={this.handleNumber} placeholder="Employee Number" required type="number" name="employee_number" id="employee_number" className="form-control" />
+                    <input value={this.state.employee_number} onChange={this.handleNumber} placeholder="Employee Number" required type="number" name="employee_number" id="employee_number" className="form-control" />
                     <label htmlFor="employee_number">Employee Number</label>
                   </div>
               <button className="btn btn-primary">Create</button>

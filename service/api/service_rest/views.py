@@ -50,9 +50,9 @@ def api_list_technician(request):
 @require_http_methods(["GET", "POST"])
 def api_list_appointments(request):
     if request.method == "GET":
-        appointments = ServiceAppointment.objects.filter(status=False)
+        finished_appointments = ServiceAppointment.objects.filter(status=False)
         return JsonResponse(
-            {"appointments": appointments},
+            {"appointments": finished_appointments},
             encoder=AppointmentListEncoder,
             safe=False
         )
