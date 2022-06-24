@@ -57,6 +57,7 @@ class App extends React.Component {
             <Route path="/vehicles">
               <Route path="/vehicles/manufacturers/new" element={<VehicleManufacturerForm />} />
               <Route path="/vehicles/automobiles/list" element={<AutomobilesList Automobiles={this.state.autos} />} />
+              <Route path="/vehicles/automobiles/new" element={<AutomobileForm />} />
               <Route path="new/model" element={<VehicleModelForm />} />
               <Route path="models/" element={<VehicleModelForm autos={this.state.VehicleModelList} />} />
               <Route path="manufacturers/" element={<VehicleManufacturersList ManufacturerList={this.state.manufacturers} />} />
@@ -72,7 +73,7 @@ class App extends React.Component {
               <Route path="salesperson/new" element={<SalesPersonForm />} />
               {/* <Route path="salesrecords/" element={<SalesRecordList sales_record={this.state.salesrecords} />} /> */}
               <Route path="customer/new/" element={<CustomerForm />} />
-              {/* <Route path="/vehicles/automobiles/new" element={<AutomobileForm />} /> */}
+              
             </Route>
           </Routes>
         </div>
