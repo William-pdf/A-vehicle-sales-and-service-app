@@ -1,4 +1,4 @@
-
+import React, { Component } from 'react'
 export default class ManufacturerForm extends Component {
   constructor(props) {
       super(props);

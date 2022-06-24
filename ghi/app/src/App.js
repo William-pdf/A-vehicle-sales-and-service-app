@@ -9,7 +9,7 @@ import VehicleManufacturersList from './VehicleManufacturersList';
 import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
 import ServiceAppointmentForm from './ServiceAppointmentForm';
-//import SalesPersonForm from './SalesPersonForm';
+import SalesPersonForm from './SalesPersonForm';
 import TechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
 import ServiceHistory from './ServiceHistory';
@@ -62,7 +62,7 @@ class App extends React.Component {
               <Route path="appointments/" element={<ServiceAppointmentForm />} />
               <Route path="appointments/list" element={<AppointmentList AppointmentsList={this.state.appointments} />} />
               <Route path="sales/">
-              {/* <Route path="salesperson/new" element={<SalesPersonForm />} /> */}
+              <Route path="salesperson/new" element={<SalesPersonForm />} />
               </Route>
             </Route>
           </Routes>
