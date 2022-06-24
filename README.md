@@ -3,7 +3,7 @@
 Team:
 
 * Conner - Sales
-* William - Service and inventory 
+* William - Service 
 
 ## Design
 This application has 3 major categories Service, Sales, and inventory. The inventory was our starting point and contains a list of models, manafactureres and autos. These were used to create functionality for each of the following microservices. 
@@ -19,5 +19,5 @@ Microservice to display service appointments, a list of said appointments with d
 This goes along with a service history which will show appointments for a specific vin and all the previous customer/vehicle data.
 
 ## Sales microservice
-The sales microservice consists of serveral pages and lists that can 
+The sales microservice consists of serveral pages and lists that can track sales of autos, based on the salesman, price, and assigned automobile. Along with keeping track of the history of the sales, we keep track of perspetive customers. 
 
