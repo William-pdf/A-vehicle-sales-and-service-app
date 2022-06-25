@@ -4,7 +4,7 @@ import React from 'react'
 import Nav from './Nav';
 import VehicleModelForm from './VehicleModelForm';
 import VehicleManufacturerForm from './VehicleManufacturerForm';
-import VehicleList from './VehicleModelList';
+import VehicleModelList from './VehicleModelList';
 import VehicleManufacturersList from './VehicleManufacturersList';
 import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
