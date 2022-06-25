@@ -1,10 +1,11 @@
-function VehicleList(props) {
-    console.log("listForm", props);
+import React from "react";
+
+function VehicleList({ModelList}) {
     return (
       <div className="container">
         <h2 className="display-5 fw-bold">Vehicle Models</h2>
         <div className="row">
-          {props.vehicles.models.map(vehicle => {
+          {ModelList && ModelList.map(vehicle => {
             return (
               <div key={vehicle.id} className="col">
                 <div className="card mb-3 shadow">

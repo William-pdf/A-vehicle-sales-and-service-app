@@ -47,7 +47,7 @@ class SalesPersonForm extends React.Component {
     render () {
         return (
             <div className="px-4 py-5 my-5 text-center">
-                <h1 className="display-5 fw-bold">Create Sales Person</h1>
+                <h1 className="display-5 fw-bold">New Sales Person Info</h1>
                 <form onSubmit={this.handleSubmit} id='create-salesperson-form'>
                     <div className="form-floating mb-3">
                         <input onChange={this.handleChangeName} name='name' requiredtype='text' id='name' className='form-control' />

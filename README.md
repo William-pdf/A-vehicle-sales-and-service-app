@@ -6,6 +6,9 @@ Team:
 * William - Service 
 
 ## Design
+
+(It is possible that the project shipped without a working database, to ensure that the api works correctly please use insomnia and the provided urls to add objects for manufacturers, Automobile, Model)
+
 This application has 3 major categories Service, Sales, and inventory. The inventory was our starting point and contains a list of models, manafactureres and autos. These were used to create functionality for each of the following microservices. 
 
 We used react to create the front end of the application. This was a challenging task for most of the time we worked on it. Completing the Django models was the fundamental challenge for the project. 

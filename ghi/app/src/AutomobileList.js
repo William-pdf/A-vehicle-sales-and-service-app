@@ -2,7 +2,7 @@ function AutomobilesList({Automobiles}) {
     console.log("automobiles list form",);
     return (
       <>
-      <h1> Autos list babyyyyy</h1>
+      <h1>Automobiles</h1>
         <table className="table table-striped">
         <thead>
           <tr>

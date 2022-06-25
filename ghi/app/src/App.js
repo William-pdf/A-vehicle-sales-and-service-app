@@ -4,7 +4,6 @@ import React from 'react'
 import Nav from './Nav';
 import VehicleModelForm from './VehicleModelForm';
 import VehicleManufacturerForm from './VehicleManufacturerForm';
-import VehicleModelList from './VehicleModelList';
 import VehicleManufacturersList from './VehicleManufacturersList';
 import AutomobileForm from './AutomobileForm';
 import AutomobilesList from './AutomobileList';
@@ -16,6 +15,7 @@ import CustomerForm from './CustomerForm';
 import TechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
 import ServiceHistory from './ServiceHistory';
+import VehicleModelList from './VehicleModelList';
 
 class App extends React.Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class App extends React.Component {
               <Route path="/vehicles/automobiles/list" element={<AutomobilesList Automobiles={this.state.autos} />} />
               <Route path="/vehicles/automobiles/new" element={<AutomobileForm />} />
               <Route path="new/model" element={<VehicleModelForm />} />
-              <Route path="models/" element={<VehicleModelForm autos={this.state.VehicleModelList} />} />
+              <Route path="models/" element={<VehicleModelList autos={this.state.VehicleModelList} />} />
               <Route path="manufacturers/" element={<VehicleManufacturersList ManufacturerList={this.state.manufacturers} />} />
             </Route>
             <Route path="services/">
