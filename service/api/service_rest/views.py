@@ -61,9 +61,10 @@ def api_list_appointments(request):
         print(content)
 
         try:
-            technician = Technician.objects.get(employee_number=content["technician_number"])
+            technician = Technician.objects.get(employee_number=content["technician"])
             automobile = AutoMobileVO.objects.get(vin=content["vin"])
-            # content["assigned_technician"] = technician
+            content["assigned_technician"] = technician
+            content["automobile"] = automobile
             service_Dictionary = {
                 "customer_name": content["customer_name"],
                 "reason": content["reason"],
@@ -72,9 +73,9 @@ def api_list_appointments(request):
                 "automobile": automobile,
                 "assigned_technician": technician
             }
-        except Technician.DoesNotExist:
+        except Technician.DoesNotExist or AutoMobileVO.DoesNotExist:
             return JsonResponse(
-                {"message": "Technician not available"},
+                {"message": "Technician or Automobile not available"},
                 status=400,
             )
         appointment = ServiceAppointment.objects.create(**service_Dictionary)
